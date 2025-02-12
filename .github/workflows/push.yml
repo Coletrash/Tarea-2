@@ -1,0 +1,17 @@
+name: Pruebas unitarias
+
+on:
+  push:
+    branches: [main, dev] # Se ejecuta en pushes a main o dev
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: npm install
+      - run: npm test
